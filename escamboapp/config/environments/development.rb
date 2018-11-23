@@ -2,7 +2,10 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # BetterErros config
-  BetterErros::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
+  BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
+
+  # Web console
+  config.web_console.whitelisted_ips = ENV['TRUSTED_IP']
 
   # Devise Config
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
